@@ -32,7 +32,7 @@ const noMessages = [
 ];
 
 yesBtn.addEventListener('click', function() {
-    response.innerHTML = "You've made me the happiest person alive! 💖🎉💕";
+    response.innerHTML = "You've made me the happiest person alive! 💖🎉💕 Yippee";
     response.classList.add('show');
     createCelebration();
 
@@ -44,6 +44,12 @@ yesBtn.addEventListener('click', function() {
     for (let i = 0; i < 20; i++) {
         setTimeout(createHeart, i * 50);
     }
+
+    // Show photo popup after a short delay
+    setTimeout(() => {
+        const modal = document.getElementById('photoModal');
+        modal.classList.add('show');
+    }, 1500);
 });
 
 noBtn.addEventListener('click', function() {
@@ -78,6 +84,29 @@ noBtn.addEventListener('mouseover', function() {
         noBtn.style.top = Math.random() * maxY + 'px';
     }
 });
+
+// Photo slideshow functionality
+let currentPhoto = 0;
+const photos = document.querySelectorAll('.popup-photo');
+const dots = document.querySelectorAll('.dot');
+
+function showPhoto(index) {
+    photos.forEach(photo => photo.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    photos[index].classList.add('active');
+    dots[index].classList.add('active');
+    currentPhoto = index;
+}
+
+// Auto-rotate photos every 3 seconds when modal is open
+setInterval(() => {
+    const modal = document.getElementById('photoModal');
+    if (modal.classList.contains('show')) {
+        currentPhoto = (currentPhoto + 1) % photos.length;
+        showPhoto(currentPhoto);
+    }
+}, 3000);
 
 // Celebration confetti
 function createCelebration() {

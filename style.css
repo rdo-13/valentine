@@ -104,6 +104,22 @@ h1 {
     margin-bottom: 30px;
 }
 
+.poem {
+    color: #8b4557;
+    font-size: 1.1rem;
+    line-height: 2;
+    margin-bottom: 30px;
+    font-style: italic;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 105, 180, 0.1));
+    border-left: 3px solid #e74c3c;
+    border-radius: 0 10px 10px 0;
+}
+
+.poem p {
+    margin: 5px 0;
+}
+
 .question {
     color: #c0392b;
     font-size: 1.8rem;
@@ -213,6 +229,107 @@ h1 {
     }
 }
 
+/* Photo Modal Styles */
+.photo-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.photo-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.photo-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    max-height: 90%;
+    animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 25px 80px rgba(255, 107, 107, 0.4);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0) rotate(-10deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.photo-slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.popup-photo {
+    max-width: 100%;
+    max-height: 60vh;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.popup-photo.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.photo-caption {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #e74c3c;
+    font-style: italic;
+    font-family: 'Georgia', serif;
+}
+
+.photo-dots {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background: #ff8e8e;
+}
+
+.dot.active {
+    background: #e74c3c;
+    transform: scale(1.2);
+}
+
 @media (max-width: 600px) {
     .card {
         padding: 30px 20px;
@@ -233,5 +350,13 @@ h1 {
     .btn {
         padding: 12px 30px;
         font-size: 1rem;
+    }
+
+    .photo-modal-content {
+        padding: 15px;
+    }
+
+    .photo-caption {
+        font-size: 1.2rem;
     }
 }

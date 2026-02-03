@@ -12,18 +12,37 @@
     <div class="container">
         <div class="card">
             <h1>My Dearest Katelyn</h1>
-            <p class="message">
-                Every moment with you feels like a dream come true.
-                You make my soul feel complete.
-            </p>
+            <div class="poem">
+                <p>I love your lips when they're wet with wine</p>
+                <p>And red with a wild desire;</p>
+                <p>I love your eyes when the lovelight lies</p>
+                <p>Lit with a passionate fire.</p>
+            </div>
             <p class="question">Will you be my Valentine?</p>
 
             <div class="buttons">
-                <button class="btn yes-btn" id="yesBtn">Yes!</button>
-                <button class="btn no-btn" id="noBtn">No</button>
+                <button class="btn yes-btn" id="yesBtn">Yes 🥰</button>
+                <button class="btn no-btn" id="noBtn">No 😭</button>
             </div>
 
             <div class="response" id="response"></div>
+        </div>
+    </div>
+
+    <!-- Photo Popup Modal -->
+    <div class="photo-modal" id="photoModal">
+        <div class="photo-modal-content">
+            <div class="photo-slideshow">
+                <img src="CTP_Engagement_Katie&Richard-77.jpg" class="popup-photo active" id="photo1">
+                <img src="CTP_Engagement_Katie&Richard-101.jpg" class="popup-photo" id="photo2">
+                <img src="kr_cliffs.jpg" class="popup-photo" id="photo3">
+            </div>
+            <p class="photo-caption">I love you SO MUCH Katie Yoo 🥰! "I love you because the entire universe conspired to help me find you." - Paulo Coelho 💋💕</p>
+            <div class="photo-dots">
+                <span class="dot active" onclick="showPhoto(0)"></span>
+                <span class="dot" onclick="showPhoto(1)"></span>
+                <span class="dot" onclick="showPhoto(2)"></span>
+            </div>
         </div>
     </div>
 
