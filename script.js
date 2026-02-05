@@ -32,6 +32,9 @@ const noMessages = [
 ];
 
 yesBtn.addEventListener('click', function() {
+    // Remove sad mode and restore original background
+    document.body.classList.remove('sad-mode');
+
     response.innerHTML = "You've made me the happiest person alive! 💖🎉💕 Yippee";
     response.classList.add('show');
     createCelebration();
@@ -70,6 +73,9 @@ noBtn.addEventListener('click', function() {
         // After many clicks, hide the no button and show kiss_disaster image
         noBtn.style.display = 'none';
         response.innerHTML = `<img src="images/kiss_disaster.png" class="disaster-img" alt="Kiss disaster"><br>There's only one answer now... 💘`;
+
+        // Activate sad/gloomy theme
+        document.body.classList.add('sad-mode');
     }
 });
 
@@ -90,14 +96,30 @@ let currentPhoto = 0;
 const photos = document.querySelectorAll('.popup-photo');
 const dots = document.querySelectorAll('.dot');
 
+// Create randomized order for photos
+let photoOrder = [];
+function shufflePhotoOrder() {
+    photoOrder = Array.from({length: photos.length}, (_, i) => i);
+    // Fisher-Yates shuffle
+    for (let i = photoOrder.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [photoOrder[i], photoOrder[j]] = [photoOrder[j], photoOrder[i]];
+    }
+}
+shufflePhotoOrder();
+
 function showPhoto(index) {
     photos.forEach(photo => photo.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
 
-    photos[index].classList.add('active');
+    const actualIndex = photoOrder[index];
+    photos[actualIndex].classList.add('active');
     dots[index].classList.add('active');
     currentPhoto = index;
 }
+
+// Show first photo in randomized order
+showPhoto(0);
 
 // Auto-rotate photos every 3 seconds when modal is open
 setInterval(() => {

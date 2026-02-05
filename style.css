@@ -12,6 +12,43 @@ body {
     background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%);
     font-family: 'Georgia', serif;
     overflow: hidden;
+    transition: background 1s ease, filter 1s ease;
+}
+
+/* Sad/Gloomy Mode */
+body.sad-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+body.sad-mode .card {
+    background: rgba(30, 30, 50, 0.95);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+body.sad-mode .card::before {
+    background: linear-gradient(45deg, #4a4a6a, #3a3a5a, #2a2a4a, #3a3a5a, #4a4a6a);
+}
+
+body.sad-mode h1 {
+    color: #7a7a9a;
+}
+
+body.sad-mode .poem {
+    color: #6a6a8a;
+    background: linear-gradient(135deg, rgba(50, 50, 80, 0.3), rgba(40, 40, 70, 0.2));
+    border-left-color: #5a5a7a;
+}
+
+body.sad-mode .question {
+    color: #8a8aaa;
+}
+
+body.sad-mode .response {
+    color: #9a9aba;
+}
+
+body.sad-mode .heart {
+    filter: grayscale(100%) brightness(0.5);
 }
 
 .hearts-container {
