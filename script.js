@@ -67,9 +67,9 @@ noBtn.addEventListener('click', function() {
         noBtn.style.transform = `scale(${Math.max(0.5, currentNoScale)})`;
         noBtn.style.opacity = Math.max(0.3, 1 - noClickCount * 0.15);
     } else {
-        // After many clicks, hide the no button
+        // After many clicks, hide the no button and show kiss_disaster image
         noBtn.style.display = 'none';
-        response.innerHTML = "There's only one answer now... 💘";
+        response.innerHTML = `<img src="images/kiss_disaster.png" class="disaster-img" alt="Kiss disaster"><br>There's only one answer now... 💘`;
     }
 });
 

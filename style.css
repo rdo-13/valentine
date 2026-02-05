@@ -187,6 +187,19 @@ h1 {
     animation: celebrate 0.5s ease-out;
 }
 
+.disaster-img {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px) rotate(-5deg); }
+    75% { transform: translateX(10px) rotate(5deg); }
+}
+
 @keyframes celebrate {
     0% {
         transform: scale(0);
